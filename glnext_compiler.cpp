@@ -32,13 +32,14 @@ PyObject * meth_glsl(PyObject * self, PyObject * args, PyObject * kwargs) {
         return NULL;
     }
 
-    shaderc_result_release(result);
-    shaderc_compiler_release(compiler);
-
-    return PyBytes_FromStringAndSize(
+    PyObject * res = PyBytes_FromStringAndSize(
         shaderc_result_get_bytes(result),
         shaderc_result_get_length(result)
     );
+
+    shaderc_result_release(result);
+    shaderc_compiler_release(compiler);
+    return res;
 }
 
 PyMethodDef module_methods[] = {
