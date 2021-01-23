@@ -1,0 +1,3 @@
+include glnext_compiler.cpp
+include README.md
+include LICENSE
