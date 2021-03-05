@@ -8,8 +8,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /build
 COPY glnext_compiler.cpp setup.py MANIFEST.in README.md LICENSE /build/
 RUN python3 setup.py sdist
-RUN python3 -m pip wheel dist/glnext_compiler-*.tar.gz
-RUN python3 -m pip install glnext_compiler-*.whl
+RUN python3 -m pip wheel dist/glnext-compiler-*.tar.gz
+RUN python3 -m pip install glnext-compiler-*.whl
 
 WORKDIR /tests
 COPY tests /tests
