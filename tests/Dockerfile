@@ -1,6 +1,6 @@
-FROM python:3.9.1
+FROM python:3.9.2
 RUN wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | apt-key add - &&\
-    echo "deb https://packages.lunarg.com/vulkan/1.2.162 bionic main" >> /etc/apt/sources.list &&\
+    echo "deb https://packages.lunarg.com/vulkan/1.2.170 bionic main" >> /etc/apt/sources.list &&\
     apt-get update && apt-get install -y shaderc
 RUN python3 -m pip install pytest
 ENV PYTHONUNBUFFERED=1
