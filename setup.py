@@ -40,7 +40,7 @@ package_data = {
 
 setup(
     name='glnext_compiler',
-    version='0.3.0',
+    version='0.4.0',
     ext_modules=[glnext_compiler],
     package_data=package_data,
     long_description=long_description,
