@@ -36,7 +36,7 @@ with open('README.md') as readme:
 
 setup(
     name='glnext_compiler',
-    version='0.4.0',
+    version='0.4.1',
     ext_modules=[glnext_compiler],
     long_description=long_description,
     long_description_content_type='text/markdown',
