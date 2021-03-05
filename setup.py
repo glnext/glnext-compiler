@@ -35,12 +35,12 @@ with open('README.md') as readme:
     long_description = readme.read()
 
 setup(
-    name='glnext_compiler',
+    name='glnext-compiler',
     version='0.4.1',
     ext_modules=[glnext_compiler],
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/cprogrammer1994/glnext_compiler',
+    url='https://github.com/cprogrammer1994/glnext-compiler',
     author='Szabolcs Dombi',
     author_email='cprogrammer1994@gmail.com',
     license='MIT',
