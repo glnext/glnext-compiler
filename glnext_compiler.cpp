@@ -1,4 +1,3 @@
-#define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
 #include <shaderc/shaderc.h>
@@ -27,8 +26,13 @@ PyObject * meth_glsl(PyObject * self, PyObject * args, PyObject * kwargs) {
         "main",
         options
     );
+
     if (shaderc_compilation_status status = shaderc_result_get_compilation_status(result)) {
-        PyErr_Format(PyExc_ValueError, "compile error\n\n%s", shaderc_result_get_error_message(result));
+        if (status == shaderc_compilation_status_invalid_stage) {
+            PyErr_Format(PyExc_ValueError, "compile error\n\nmissing #pragma shader_stage(...)");
+        } else {
+            PyErr_Format(PyExc_ValueError, "compile error\n\n%s", shaderc_result_get_error_message(result));
+        }
         return NULL;
     }
 
