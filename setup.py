@@ -34,15 +34,10 @@ glnext_compiler = Extension(
 with open('README.md') as readme:
     long_description = readme.read()
 
-package_data = {
-    'glnext_compiler-stubs': ['__init__.pyi'],
-}
-
 setup(
     name='glnext_compiler',
     version='0.4.0',
     ext_modules=[glnext_compiler],
-    package_data=package_data,
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/cprogrammer1994/glnext_compiler',

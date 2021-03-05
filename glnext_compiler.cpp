@@ -47,11 +47,11 @@ PyObject * meth_glsl(PyObject * self, PyObject * args, PyObject * kwargs) {
 }
 
 PyMethodDef module_methods[] = {
-    {"glsl", (PyCFunction)meth_glsl, METH_VARARGS | METH_KEYWORDS, NULL},
+    {"glsl", (PyCFunction)meth_glsl, METH_VARARGS | METH_KEYWORDS, "glsl(source: str)\n:rtype: bytes"},
     {},
 };
 
-PyModuleDef module_def = {PyModuleDef_HEAD_INIT, "glnext_compiler", NULL, -1, module_methods};
+PyModuleDef module_def = {PyModuleDef_HEAD_INIT, "glnext_compiler", "", -1, module_methods};
 
 extern "C" PyObject * PyInit_glnext_compiler() {
     return PyModule_Create(&module_def);
