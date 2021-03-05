@@ -3,7 +3,7 @@ glnext-compiler
 
 .. code:: sh
 
-    pip install glnext_compiler
+    pip install glnext-compiler
 
 - `Documentation <https://glnext-compiler.readthedocs.io/>`_
 - `glnext-compiler on Github <https://github.com/cprogrammer1994/glnext-compiler>`_

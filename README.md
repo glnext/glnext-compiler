@@ -3,7 +3,7 @@
 GLSL compiler for the glnext examples
 
 ```sh
-pip install glnext_compiler
+pip install glnext-compiler
 ```
 
 - [Documentation](https://glnext-compiler.readthedocs.io/)
