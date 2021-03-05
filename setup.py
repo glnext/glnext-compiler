@@ -1,36 +1,31 @@
 import os
-import platform
+import sys
+
 from setuptools import Extension, setup
 
-PLATFORMS = {'windows', 'linux', 'darwin'}
-
-target = platform.system().lower()
-
-for known in PLATFORMS:
-    if target.startswith(known):
-        target = known
-        break
+define_macros = [
+    ('PY_SSIZE_T_CLEAN', None),
+]
 
 extra_compile_args = []
-extra_link_args = []
 include_dirs = []
 library_dirs = []
 libraries = []
 
-if target == 'windows':
+if sys.platform == 'win32':
     include_dirs.append(os.path.join(os.getenv('VULKAN_SDK'), 'Include'))
     library_dirs.append(os.path.join(os.getenv('VULKAN_SDK'), 'Lib'))
     libraries.append('shaderc_combined')
 
-if target == 'linux':
+if sys.platform == 'linux':
     extra_compile_args.append('-fpermissive')
     libraries.append('shaderc_combined')
 
 glnext_compiler = Extension(
     name='glnext_compiler',
     sources=['./glnext_compiler.cpp'],
+    define_macros=define_macros,
     extra_compile_args=extra_compile_args,
-    extra_link_args=extra_link_args,
     include_dirs=include_dirs,
     library_dirs=library_dirs,
     libraries=libraries,
