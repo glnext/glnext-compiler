@@ -15,7 +15,7 @@ pip install glnext_compiler
 ```py
 from glnext_compiler import glsl
 
-code = glsl('''
+spv = glsl('''
     #version 450
     #pragma shader_stage(vertex)
 
