@@ -36,11 +36,19 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9]
+        # os: [ubuntu-latest, windows-latest]
+        # python-version: [3.6, 3.7, 3.8, 3.9]
+        os: [windows-latest]
+        python-version: [3.9]
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: vulkan sdk
+        run: |
+            Invoke-WebRequest -Uri "https://vulkan.lunarg.com/sdk/home#sdk/downloadConfirm/1.2.170.0/windows/VulkanSDK-1.2.170.0-Installer.exe" -OutFile VulkanSDK.exe
+            $installer = Start-Process -FilePath VulkanSDK.exe -Wait -PassThru -ArgumentList @("/S");
+            $installer.WaitForExit();
 
       - name: setup
         uses: actions/setup-python@v2
