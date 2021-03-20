@@ -6,14 +6,14 @@ glnext-compiler
     pip install glnext-compiler
 
 - `Documentation <https://glnext-compiler.readthedocs.io/>`_
-- `glnext-compiler on Github <https://github.com/cprogrammer1994/glnext-compiler>`_
+- `glnext-compiler on Github <https://github.com/glnext/glnext-compiler/>`_
 - `glnext-compiler on PyPI <https://pypi.org/project/glnext-compiler/>`_
 
 This library is a standalone GLSL compiler for vulkan projects.
 The binaries do not require the vulkan-sdk to be installed.
 This library uses `shaderc`_.
 
-.. _shaderc: https://github.com/google/shaderc
+.. _shaderc: https://github.com/google/shaderc/
 
 There is a single method available:
 

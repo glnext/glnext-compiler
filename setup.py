@@ -36,11 +36,11 @@ with open('README.md') as readme:
 
 setup(
     name='glnext-compiler',
-    version='1.0.0',
+    version='1.0.1',
     ext_modules=[glnext_compiler],
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/cprogrammer1994/glnext-compiler',
+    url='https://github.com/glnext/glnext-compiler/',
     author='Szabolcs Dombi',
     author_email='cprogrammer1994@gmail.com',
     license='MIT',

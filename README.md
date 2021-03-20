@@ -5,7 +5,7 @@ pip install glnext-compiler
 ```
 
 - [Documentation](https://glnext-compiler.readthedocs.io/)
-- [glnext-compiler on Github](https://github.com/cprogrammer1994/glnext-compiler)
+- [glnext-compiler on Github](https://github.com/glnext/glnext-compiler)
 - [glnext-compiler on PyPI](https://pypi.org/project/glnext-compiler/)
 
 This library is a standalone GLSL compiler for vulkan projects.<br>
