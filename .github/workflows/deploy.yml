@@ -1,6 +1,9 @@
 name: deploy
 
 on:
+  push:
+    branches: [ main ]
+
   workflow_dispatch:
 
 jobs:
@@ -55,7 +58,7 @@ jobs:
         if: contains(matrix.os, 'ubuntu')
         run: |
           wget -qO - https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add -
-          sudo echo "deb https://packages.lunarg.com/vulkan/1.2.170 bionic main" >> /etc/apt/sources.list
+          sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-1.2.170-bionic.list https://packages.lunarg.com/vulkan/1.2.170/lunarg-vulkan-1.2.170-bionic.list
           sudo apt-get update && sudo apt-get install -y shaderc
 
       - name: setup
