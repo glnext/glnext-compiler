@@ -40,8 +40,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        # python-version: [3.6, 3.7, 3.8, 3.9]
-        python-version: [3.9]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
       - uses: actions/checkout@v2
@@ -72,19 +71,19 @@ jobs:
       - name: wheel
         run: python setup.py bdist_wheel
 
-      - name: auditwheel
-        if: contains(matrix.os, 'ubuntu')
-        run: |
-          mv dist audit
-          python -m pip install -U auditwheel
-          python -m auditwheel repair audit/*-linux_x86_64.whl --plat manylinux2014_x86_64 -w dist
+      # - name: auditwheel
+      #   if: contains(matrix.os, 'ubuntu')
+      #   run: |
+      #     mv dist audit
+      #     python -m pip install -U auditwheel
+      #     python -m auditwheel repair audit/*-linux_x86_64.whl --plat manylinux2014_x86_64 -w dist
 
-      - name: upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: "dist/*.whl"
-          retention-days: 1
+      # - name: upload
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: dist
+      #     path: "dist/*.whl"
+      #     retention-days: 1
 
   # publish:
   #   name: publish
