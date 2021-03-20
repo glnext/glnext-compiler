@@ -13,8 +13,11 @@ library_dirs = []
 libraries = []
 
 if sys.platform == 'win32':
-    include_dirs.append(os.path.join(os.getenv('VULKAN_SDK'), 'Include'))
-    library_dirs.append(os.path.join(os.getenv('VULKAN_SDK'), 'Lib'))
+    sdk = os.getenv('VULKAN_SDK')
+    if sdk is None:
+        sdk = os.path.join('C:\\VulkanSDK\\', os.listdir('C:\\VulkanSDK\\')[0])
+    include_dirs.append(os.path.join(sdk, 'Include'))
+    library_dirs.append(os.path.join(sdk, 'Lib'))
     libraries.append('shaderc_combined')
 
 if sys.platform == 'linux':

@@ -51,7 +51,6 @@ jobs:
           Invoke-WebRequest -Uri "https://sdk.lunarg.com/sdk/download/1.2.170.0/windows/VulkanSDK-1.2.170.0-Installer.exe" -OutFile VulkanSDK.exe
           $installer = Start-Process -FilePath VulkanSDK.exe -Wait -PassThru -ArgumentList @("/S");
           $installer.WaitForExit();
-          $Env:VULKAN_SDK = "C:\VulkanSDK\1.2.170.0"
 
       - name: vulkan sdk
         if: contains(matrix.os, 'ubuntu')
