@@ -9,16 +9,14 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build
+      - name: build
         run: docker build . -f tests/Dockerfile -t tests
 
-      - name: Test
+      - name: test
         run: docker run --rm -t tests
