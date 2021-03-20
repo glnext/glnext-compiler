@@ -67,33 +67,33 @@ jobs:
           path: "dist/*.whl"
           retention-days: 1
 
-  publish:
-    name: publish
-    needs:
-      - sdist
-      - wheel
-    runs-on: ubuntu-latest
+  # publish:
+  #   name: publish
+  #   needs:
+  #     - sdist
+  #     - wheel
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: setup
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
+  #   steps:
+  #     - name: setup
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: '3.9'
 
-      - name: deps
-        run: python -m pip install -U twine
+  #     - name: deps
+  #       run: python -m pip install -U twine
 
-      - name: download
-        uses: actions/download-artifact@v2
+  #     - name: download
+  #       uses: actions/download-artifact@v2
 
-      - name: sdist
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: python -m twine upload dist/*.tar.gz
+  #     - name: sdist
+  #       env:
+  #         TWINE_USERNAME: __token__
+  #         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  #       run: python -m twine upload dist/*.tar.gz
 
-      - name: wheels
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: python -m twine upload dist/*.whl
+  #     - name: wheels
+  #       env:
+  #         TWINE_USERNAME: __token__
+  #         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+  #       run: python -m twine upload dist/*.whl
