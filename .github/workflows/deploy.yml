@@ -74,12 +74,13 @@ jobs:
       #     python -m pip install -U auditwheel
       #     python -m auditwheel repair audit/*-linux_x86_64.whl --plat manylinux2014_x86_64 -w dist
 
-      # - name: upload
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: dist
-      #     path: "dist/*.whl"
-      #     retention-days: 1
+      - name: upload
+        uses: actions/upload-artifact@v2
+        if: contains(matrix.os, 'windows')
+        with:
+          name: dist
+          path: "dist/*.whl"
+          retention-days: 1
 
   publish:
     name: publish
@@ -100,11 +101,11 @@ jobs:
       - name: download
         uses: actions/download-artifact@v2
 
-      - name: sdist
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-        run: python -m twine upload dist/*.tar.gz
+      # - name: sdist
+      #   env:
+      #     TWINE_USERNAME: __token__
+      #     TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      #   run: python -m twine upload dist/*.tar.gz
 
       - name: wheels
         env:
